@@ -1,0 +1,13 @@
+<view class="chat-container">
+  <view class="message-list">
+    <block wx:for="{{messages}}" wx:key="index">
+      <view class="message {{item.type}}">
+        <text>{{item.text}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="input-container">
+    <input type="text" placeholder="输入消息" bindinput="handleInput" value="{{messageInput}}" class="input" data-type="message"></input>
+    <button bindtap="send" data-type="send">发送</button>
+  </view>
+</view>

@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  height: 100vh;
+}
+
+.header {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.content {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.content textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #666;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.submit-btn {
+  width: 80%;
+  background-color: #1aad19;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.submit-btn:active {
+  background-color: #178c15;
+}
+
+.response {
+  width: 100%;
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+  margin-top: 20px;
+}

@@ -1,0 +1,29 @@
+<view class="container">
+  <!-- 轮播图部分 -->
+  <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="5000" duration="1000">
+    <block wx:for="{{carouselImages}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="swiper-image" mode="aspectFill"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 商品列表部分 -->
+  <view class="goods-list">
+    <block wx:for="{{postedItems}}" wx:key="index" wx:for-item="item">
+      <view class="item" bindtap="navigateToGoodsInfo" data-id="{{item.id}}">
+        <text>标题: {{item.title}}</text>
+        <text>描述: {{item.description}}</text>
+        <text>价格: {{item.price}} 元</text>
+        <text>分类: {{item.classification}}</text>
+        <view class="images">
+          <image wx:for="{{item.images}}" src="{{item}}" mode="aspectFit" class="item-image"></image>
+        </view>
+        <button class="want-button" bindtap="toggleWant" data-id="{{item.id}}" data-want="{{item.want ? '已想要' : '我想要'}}">
+          {{item.want ? '已想要' : '我想要'}}
+        </button>
+
+      </view>
+    </block>
+  </view>
+</view>

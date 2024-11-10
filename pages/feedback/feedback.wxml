@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="header">
+    <text>匿名反馈</text>
+  </view>
+  <view class="content">
+    <textarea placeholder="请输入您的反馈内容" bindinput="inputChange" value="{{feedback}}" />
+  </view>
+  <view class="footer">
+    <button class="submit-btn" bindtap="submitFeedback">提交反馈</button>
+  </view>
+  <view class="response" wx:if="{{response}}">
+    <text>{{response}}</text>
+  </view>
+</view>
