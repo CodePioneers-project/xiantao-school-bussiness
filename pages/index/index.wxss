@@ -1,3 +1,33 @@
+@import "../../iconfront.wxss";
+
+.search{
+  box-sizing: border-box;
+  padding: 8rpx 0;
+  position: relative;
+}
+
+.icon-search:before {
+  content: "\e7c4";
+}
+
+.search .icon{
+  position: absolute;
+  top: 50%;
+  left: 15rpx;
+  transform: translateY(-50%);
+  font-size: 11pt;
+  color: #333;
+}
+
+.search .input{
+  border-radius: 100rpx;
+  background-color: transparent;
+  border: 1px solid #707070;
+  color: #707070;
+  height: 100%;
+  padding: 0 30rpx 0 60rpx;
+}
+
 /* 容器样式 */
 .container {
   display: flex; /* 使用弹性盒子布局 */

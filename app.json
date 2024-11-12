@@ -11,11 +11,10 @@
     "pages/register/register",
     "pages/editProfile/editProfile",
     "pages/feedback/feedback"
-
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#FCDB57",
     "navigationBarTitleText": "“闲淘”校园二手交易",
     "navigationBarTextStyle": "black"
   },

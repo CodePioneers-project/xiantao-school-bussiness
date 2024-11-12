@@ -1,0 +1,38 @@
+.component{
+  color: #fff;
+}
+.statusBar,.navigationBar,.menuButton{
+  position: fixed;
+  z-index: 10000;
+}
+/* 默认顶部背景色 */
+.statusBar,.navigationBar{
+  background-color: #000;
+}
+.navigationBar-content{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.navigationBar-content.border-box{
+  box-sizing: border-box;
+}
+.navigationBar-content,.navigation-placeholder{
+  position: relative;
+  font-size: 10pt;
+}
+.back image{
+  width: 58px;
+  height: 29px;
+  margin-right: 15px;
+}
+
+.flex-between{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-1{
+  flex: 1;
+}
