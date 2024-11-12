@@ -1,4 +1,14 @@
 <view class="chat-container">
+  <!-- 商品信息 -->
+  <view class="product-info">
+    <image class="product-image" src="../../img/laopo.jpg" mode="aspectFill" />
+    <view class="product-details">
+      <text class="product-price">￥15</text>
+    </view>
+    <button class="pay-button" bindtap="handlePay">去付款</button>
+  </view>
+
+  <!-- 消息列表 -->
   <view class="message-list">
     <block wx:for="{{messages}}" wx:key="index">
       <view class="message {{item.type}}">
@@ -6,8 +16,17 @@
       </view>
     </block>
   </view>
+
+  <!-- 输入框 -->
   <view class="input-container">
-    <input type="text" placeholder="输入消息" bindinput="handleInput" value="{{messageInput}}" class="input" data-type="message"></input>
-    <button bindtap="send" data-type="send">发送</button>
+    <input type="text" placeholder="发消息..." bindinput="handleInput" value="{{messageInput}}" class="input" />
+    <view class="input-icons">
+      <button bindtap="openEmoji" class="emoji-button">
+        <image class="emoji-img" src="../../img/emoji.png" />
+      </button>
+      <button bindtap="moreOptions" class="more-button">
+        <image class="more-img" src="../../img/more_action.png" />
+      </button>
+    </view>
   </view>
 </view>
