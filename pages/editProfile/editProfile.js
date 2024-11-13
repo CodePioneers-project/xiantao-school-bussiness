@@ -10,7 +10,12 @@ Page({
       education: '',
       signature: ''
     },
-    genderArray: ['男', '女', '其他']
+    genderArray: ['男', '女', '其他'],
+    login: {
+      show: false,
+      line: false,
+      avatar: ''
+    }
   },
 
   onLoad: function (options) {
@@ -37,6 +42,40 @@ Page({
     const gender = e.detail.value;
     this.setData({
       'userInfo.gender': gender
+    });
+  },
+
+  // 选择头像并模拟登录成功
+  chooseAvatar(e) {
+    const { avatarUrl } = e.detail;
+    this.setData({
+      'login.avatar': avatarUrl,
+      'login.show': true,
+      'login.line': true
+    });
+    wx.showToast({
+      title: '登录成功',
+      icon: 'success',
+      duration: 2000
+    });
+  },
+
+  // 基本信息点击事件
+  toNickNamePage() {
+    wx.navigateTo({
+      url: '/pages/nickname/nickname'
+    });
+  },
+
+  toUserProfileBgPage() {
+    wx.navigateTo({
+      url: '/pages/userProfileBg/userProfileBg'
+    });
+  },
+
+  toUserIntroPage() {
+    wx.navigateTo({
+      url: '/pages/userIntro/userIntro'
     });
   },
 

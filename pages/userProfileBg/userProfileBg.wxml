@@ -1,0 +1,7 @@
+<view class="page">
+  <image class="bg" src="/img/my/bg.png" />
+  <view class="btn-box">
+    <button>自定义</button>
+    <button>默认背景</button>
+  </view>
+</view>

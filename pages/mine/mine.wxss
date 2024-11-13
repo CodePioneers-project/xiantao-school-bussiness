@@ -1,0 +1,130 @@
+.back {
+  position: relative;
+  width: 40rpx;
+  height: 100%;
+}
+
+.back .icon {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform-origin: center;
+  width: 20rpx;
+  height: 20rpx;
+  border: 5rpx solid #fff;
+  border-top-width: 0;
+  border-right-width: 0;
+}
+
+.top-color {
+  background-color: #FCDB57;
+  height: 200px;
+}
+
+.info-container {
+  background-color: #fff;
+  height: 100%;
+}
+
+.info-container .user-info {
+  position: relative;
+  display: flex;
+  height: 95px;
+}
+
+.info-container .user-info .user-img {
+  width: 94px;
+  height: 95px;
+  position: absolute;
+  top: -20px;
+  left: 10px;
+}
+
+.info-container .user-info .user-code {
+  display: block;
+  font-size: 18px;
+  margin-top: 15px;
+  margin-left: 110px;
+}
+
+.info-container .personal-signature {
+  color: #251f1f;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+.info-container .edit-box {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #D0D0D0;
+}
+
+.info-container .edit-box .follow {
+  color: #707070;
+  font-size: 18px;
+  margin-left: 20px;
+  margin-right: 25px;
+}
+
+.info-container .edit-box .vermicelli {
+  color: #707070;
+  font-size: 18px;
+}
+
+.info-container .edit-box .edit-btn {
+  margin: 0;
+  background-color: #FCDB57;
+  width: 96px;
+  height: 36px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.info-container .product-box {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.info-container .product-box text {
+  display: block;
+  color: #707070;
+  font-size: 18px;
+  text-align: center;
+}
+
+.info-container .product-box .select {
+  color: #262626;
+}
+
+.info-container .product-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.info-container .product-container > image {
+  width: 151px;
+  height: 151px;
+}
+
+.info-container .product-container .title {
+  color: #262626;
+}
+
+.info-container .product-container .label {
+  color: #A2A2A2;
+}

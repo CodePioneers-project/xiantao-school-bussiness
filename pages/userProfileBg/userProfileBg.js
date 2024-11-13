@@ -1,4 +1,4 @@
-// pages/my/my.js
+// pages/userProfileBg/userProfileBg.js
 Page({
 
   /**
@@ -6,13 +6,6 @@ Page({
    */
   data: {
 
-  },
-
-  // 基本信息点击事件
-  toMinePage() {
-    wx.navigateTo({
-      url: '/pages/mine/mine'
-    });
   },
 
   /**

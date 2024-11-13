@@ -1,2 +1,37 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="page">
+  <top-bar id="topBar" backgroundColor="#ECECEC"></top-bar>
+
+  <view class="header">
+    <image class="header-img" src="/img/my/my-img.png" />
+    <view class="header-info">
+      <text class="user-name">昵称：未填写></text>
+      <text class="user-code">账号：xt790539434929</text>
+    </view>
+  </view>
+  <view class="my-trading-container">
+    <text class="trading-title">我的交易</text>
+    <view class="trading-buy">
+      <image class="trading-img" src="/img/my/buy-icon.png" />
+      <text class="buy-label">购买记录</text>
+    </view>
+    <view class="trading-publish">
+      <image class="trading-img" src="/img/my/publish-icon.png" />
+      <text class="publish-label">我发布的</text>
+    </view>
+  </view>
+  <view class="my-info-container">
+    <text class="info-title" bindtap="toMinePage">我的信息</text>
+    <view class="info-post">
+      <image class="info-img" src="/img/my/post-icon.png" />
+      <text class="post-label">我的帖子</text>
+    </view>
+    <view class="info-like">
+      <image class="info-img" src="/img/my/like-icon.png" />
+      <text class="like-label">点赞内容</text>
+    </view>
+    <view class="info-collect">
+      <image class="info-img" src="/img/my/collect-icon.png" />
+      <text class="collect-label">收藏商品</text>
+    </view>
+  </view>
+</view>

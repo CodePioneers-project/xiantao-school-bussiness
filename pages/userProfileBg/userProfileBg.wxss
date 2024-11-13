@@ -1,0 +1,22 @@
+.page {
+  background-color: #fff;
+  height: 100%;
+  padding: 15px;
+}
+
+.page .bg {
+  width: 100%;
+}
+
+.page .btn-box {
+  display: flex;
+}
+
+.page .btn-box > button {
+  margin-top: 30px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

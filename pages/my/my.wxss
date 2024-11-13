@@ -1,0 +1,139 @@
+.header {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .header-img {
+  width: 85px;
+  height: 85px;
+}
+
+.header .header-info .user-name {
+  display: block;
+  font-size: 24px;
+  color: #141414;
+  margin: 6px 0;
+}
+
+.header .header-info .user-code {
+  display: block;
+  font-size: 13px;
+  color: #636363;
+}
+
+.my-trading-container {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.my-trading-container .trading-title {
+  color: #262626;
+  font-size: 18px;
+}
+
+.my-trading-container .trading-buy {
+  height: 36px;
+  padding: 20px 0 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #D0D0D0;
+}
+
+.my-trading-container .trading-buy .trading-img {
+  width: 29px;
+  height: 25px;
+  margin-right: 20px;
+}
+
+.my-trading-container .trading-buy .buy-label {
+  font-size: 14px;
+  color: #141414;
+}
+
+.my-trading-container .trading-publish {
+  height: 36px;
+  padding: 20px 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.my-trading-container .trading-publish .trading-img {
+  width: 24px;
+  height: 28px;
+  margin-right: 20px;
+}
+
+.my-trading-container .trading-publish .publish-label {
+  font-size: 14px;
+  color: #141414;
+}
+
+.my-info-container {
+  background-color: #fff;
+  padding: 15px;
+}
+
+.my-info-container .info-title {
+  display: block;
+  color: #262626;
+  font-size: 18px;
+}
+
+.my-info-container .info-post {
+  height: 36px;
+  padding: 20px 0 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #D0D0D0;
+}
+
+.my-info-container .info-post .info-img {
+  width: 28px;
+  height: 29px;
+  margin-right: 20px;
+}
+
+.my-info-container .info-post .post-label {
+  font-size: 14px;
+  color: #141414;
+}
+
+.my-info-container .info-like {
+  height: 36px;
+  padding: 20px 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.my-info-container .info-like .info-img {
+  width: 24px;
+  height: 28px;
+  margin-right: 20px;
+}
+
+.my-info-container .info-like .like-label {
+  font-size: 14px;
+  color: #141414;
+}
+
+.my-info-container .info-collect {
+  height: 36px;
+  padding: 20px 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.my-info-container .info-collect .info-img {
+  width: 27.6px;
+  height: 26.5px;
+  margin-right: 20px;
+}
+
+.my-info-container .info-collect .collect-label {
+  font-size: 14px;
+  color: #141414;
+}
