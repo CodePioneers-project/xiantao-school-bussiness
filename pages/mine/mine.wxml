@@ -1,2 +1,32 @@
-<!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class="page">
+  <top-bar id="topBar" backgroundColor="#FCDB57">
+    <view class="back" catchtap="backView">
+      <view class="icon" style="border-color: #000;"></view>
+    </view>
+  </top-bar>
+
+  <view class="top-color"></view>
+  <view class="info-container">
+    <view class="user-info">
+      <image class="user-img" src="/img/my/my-img.png" />
+      <text class="user-code">xt790539434929</text>
+    </view>
+    <text class="personal-signature">个性签名</text>
+    <view class="edit-box">
+      <view>
+        <text class="follow">0关注</text>
+        <text class="vermicelli">0粉丝</text>
+      </view>
+      <button class="edit-btn" bindtap="toDetailPage">编辑资料</button>
+    </view>
+    <view class="product-box">
+      <text class="select">商品橱窗</text>
+      <text>帖子</text>
+    </view>
+    <view class="product-container">
+      <image src="/img/my/no-product-icon.png" />
+      <text class="title">这里没有任何宝贝</text>
+      <text class="label">别人的世界花里胡哨，你的世界空空如也~</text>
+    </view>
+  </view>
+</view>

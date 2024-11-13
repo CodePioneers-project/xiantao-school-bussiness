@@ -8,6 +8,17 @@ Page({
 
   },
 
+  backView () {
+    wx.navigateBack()
+  },
+
+  // 基本信息点击事件
+  toDetailPage() {
+    wx.navigateTo({
+      url: '/pages/editProfile/editProfile'
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

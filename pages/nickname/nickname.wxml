@@ -1,0 +1,18 @@
+<view class="page">
+  <view class="nickname-box">
+    <input class="nickname" type="text" placeholder="快取个有意思的昵称吧" data-field="nickname" bindinput="inputChange" value="{{ nickname }}" />
+    <image class="icon" src="/img/my/nickname-icon.png" />
+  </view>
+  <text class="description">{{ richTextContent }}</text>
+  <view class="name-box">
+    <text>试试推荐昵称：</text>
+    <text>换一换</text>
+  </view>
+  <view class="name-list">
+    <button>小猫事务所</button>
+    <button>暴躁小气包</button>
+    <button>捏个小鱼丸</button>
+    <button>奶油桃子</button>
+  </view>
+  <button class="save-btn" bindtap="saveUserNickName">保存</button>
+</view>

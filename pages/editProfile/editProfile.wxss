@@ -1,14 +1,44 @@
 .container {
+  height: 100%;
   padding: 20px;
-  background-color: #fff;
+  background-color: #F7F7F7;
+  position: relative;
+}
+
+.container button {
+  height: 60px;
 }
 
 .form-item {
+  background-color: #fff;
+  height: 40px;
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  position: relative;
+  justify-content: space-between;
+}
+
+.form-item .icon {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(225deg);
+  right: 5%;
+  margin: 0 auto;
+  transform-origin: center;
+  width: 20rpx;
+  height: 20rpx;
+  border: 5rpx solid #000;
+  border-top-width: 0;
+  border-right-width: 0;
+}
+
+.form-item .user-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 25px;
+  border-radius: 50%;
 }
 
 .form-item label {
@@ -39,4 +69,32 @@
 
 .save-btn:active {
   background-color: #178c15;
+}
+
+.container .logout-modal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(-20%);
+  width: 100%;
+  padding: 70px 0;
+  background-color: #fff;
+}
+
+.logout-modal > text {
+  display: block;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.logout-modal > button {
+  width: 389px;
+  height: 46px;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.logout-modal .submit {
+  background-color: #FCDB57;
+  margin-bottom: 20px;
 }

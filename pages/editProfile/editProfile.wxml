@@ -1,39 +1,29 @@
 <view class="container">
-  <view class="form-item">
+  <button style="border: none; border-radius: 0;" class="form-item" open-type="chooseAvatar" bindchooseavatar="chooseAvatar">
+    <label>头像</label>
+    <image class="user-img" src="{{login.avatar || '/img/my/my-img.png'}}" />
+    <view class="icon" ></view>
+  </button>
+  <view class="form-item" bindtap="toNickNamePage">
     <label>昵称</label>
-    <input type="text" placeholder="请输入昵称" data-field="nickname" bindinput="inputChange" value="{{userInfo.nickname}}" />
+    <view class="icon" ></view>
+  </view>
+  <view class="form-item" bindtap="toUserProfileBgPage">
+    <label>背景</label>
+    <view class="icon" ></view>
+  </view>
+  <view class="form-item" bindtap="toUserIntroPage">
+    <label>简介</label>
+    <view class="icon" ></view>
   </view>
   <view class="form-item">
-    <label>手机号</label>
-    <input type="number" placeholder="请输入手机号" data-field="phone" bindinput="inputChange" value="{{userInfo.phone}}" />
+    <label>退出登录</label>
+    <view class="icon" ></view>
   </view>
-  <view class="form-item">
-    <label>年龄</label>
-    <input type="number" placeholder="请输入年龄" data-field="age" bindinput="inputChange" value="{{userInfo.age}}" />
+
+  <view class="logout-modal">
+    <text>您确认退出吗</text>
+    <button class="submit">确认</button>
+    <button>取消</button>
   </view>
-  <view class="form-item">
-    <label>生日</label>
-    <input type="date" placeholder="请选择生日" data-field="birthday" bindinput="inputChange" value="{{userInfo.birthday}}" />
-  </view>
-  <view class="form-item">
-    <label>星座</label>
-    <input type="text" placeholder="请输入星座" data-field="constellation" bindinput="inputChange" value="{{userInfo.constellation}}" />
-  </view>
-  <view class="form-item">
-    <label>性别</label>
-    <picker bindchange="bindGenderChange" value="{{userInfo.gender}}" range="{{genderArray}}">
-      <view class="picker">
-        当前选择：{{genderArray[userInfo.gender]}}
-      </view>
-    </picker>
-  </view>
-  <view class="form-item">
-    <label>受教育背景</label>
-    <input type="text" placeholder="请输入受教育背景" data-field="education" bindinput="inputChange" value="{{userInfo.education}}" />
-  </view>
-  <view class="form-item">
-    <label>个性签名</label>
-    <textarea placeholder="请输入个性签名" data-field="signature" bindinput="inputChange" value="{{userInfo.signature}}" />
-  </view>
-  <button class="save-btn" bindtap="saveUserInfo">保存</button>
 </view>
