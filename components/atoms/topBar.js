@@ -1,6 +1,5 @@
 import { system } from "./getSystemInfo"
 
-// components/custom-navigation-bar/custom-navigation-bar.js
 Component({
   /**
    * 组件的属性列表

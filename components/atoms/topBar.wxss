@@ -22,10 +22,25 @@
   position: relative;
   font-size: 10pt;
 }
-.back image{
-  width: 58px;
-  height: 29px;
-  margin-right: 15px;
+.back{
+  position: relative;
+  width: 40rpx;
+  height: 100%;
+}
+.back .icon{
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform-origin: center;
+  width: 20rpx;
+  height: 20rpx;
+  border: 5rpx solid #fff;
+  border-top-width: 0;
+  border-right-width: 0;
 }
 
 .flex-between{

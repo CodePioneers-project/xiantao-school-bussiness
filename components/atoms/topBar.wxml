@@ -6,9 +6,11 @@
     <view class="navigationBar" style="{{system.navigationBarStyle}};Background-color:{{backgroundColor}};backGround:{{background}}">
       <!-- 可用区域 -->
       <view class="navigationBar-content border-box" style="width: {{system.menu.left}}px;padding: 0 0 5px 15px">
-        <view class="back" catchtap="back">
-          <image class="icon" src="../../img/logo.png" />
-        </view>
+        <slot name="leftSlot">
+          <view class="back" catchtap="back">
+            <view class="icon" style="border-color: {{color}};"></view>
+          </view>
+        </slot>
         <view class="flex-1" style="padding-right: {{system.systemInfo.windowWidth - (system.menu.left + system.menu.width)}}px;">
           <slot></slot>
         </view>

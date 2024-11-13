@@ -2,12 +2,44 @@ var app = getApp();
 
 Page({
   data: {
-
-    carouselImages: [  // 这里修改图片路径
-      '/img/lunbo3.jpg',
-      '/img/lunbo2.png',
-      '/img/lunbo1.jpg',
-      '/img/lunbo4.jpg'  // 新增的图片路径
+    barList: [
+      {
+        id: 1,
+        title: '推荐',
+        label: '服饰',
+        img:  '/img/home/bar1.png',
+        select: true
+      },
+      {
+        id: 2,
+        title: '服饰',
+        label: '饮食',
+        img:  '/img/home/bar2.png',
+      },
+      {
+        id: 3,
+        title: '美妆',
+        label: '鞋包',
+        img:  '/img/home/bar3.png',
+      },
+      {
+        id: 4,
+        title: '饮食',
+        label: '生活用品',
+        img:  '/img/home/bar4.png',
+      },
+      {
+        id: 5,
+        title: '鞋包',
+        label: '数码用品',
+        img:  '/img/home/bar5.png',
+      },
+      {
+        id: 6,
+        label: '饰品',
+        icon:  '/img/home/bar-icon.png',
+        img:  '/img/home/bar6.png',
+      }
     ]
   },
 
