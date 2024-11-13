@@ -1,76 +1,130 @@
-.link{
-  height: 5rpx;
-  background-color: #ECECEC;
-  width: 95%;
-  position: relative;
-  left: 20rpx;
-}
-.top-card{
+.form {
   background-color: white;
-  width: 100%;
-  height: 730rpx;
-  border-radius: 20rpx;
+  padding-bottom: 40px;
+}
+
+.title {
+  margin: 0px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 0px;
+}
+
+.describle {
   position: relative;
+  margin: 0px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 0px;
 }
 
-.top-card .title{
-  height: 70rpx;
-  margin-left: 30rpx;
-  padding-top:20rpx; 
-  font-size: 30rpx;
-}
-
-.top-card .describle{
-  margin-left:30rpx; 
-  font-size: 30rpx;
-  margin-top: 30rpx;
-}
-
-.buttom-card{
-  margin-top: 50rpx;
-  width: 100%;
-  height: 200rpx;
-  background-color: white;
-  border-radius: 20rpx;
-  display: flex;
-  /*row 横向  column 列表  */
-  flex-direction: column;
-}
-
-.buttom-card .span{
-  position: relative;
-  top: 30rpx;
-  left: 30rpx;
-  font-size: 35rpx;
-  flex: 1;
-}
-.buttom-card image{
-  position: relative;
-  right: 50rpx;
-  float: right;
-  width: 50rpx;
-  height: 50rpx;
-}
-
-.buttom{
-  width: 100%;
-  position:fixed;
-  bottom:0;
-  background-color: white;
-}
-.buttom button{
-  margin: 15rpx; 
-  background-color: red;
-}
-.img-span{
+.font-number-figure {
   position: absolute;
-  /* top: 400rpx; */
-  left: 40rpx;
-  bottom: 20rpx;
+  color: #989798;
+  bottom: 35px;
+  right: 15px;
 }
 
-.img{
-  margin: 10rpx;
-  width:140rpx;
-  height: 140rpx;
+.describle-textarea {
+  box-sizing: border-box;
+  background-color: #eee;
+  width: 100%;
+  padding: 16px 14px;
+  padding-bottom: 40px;
+  border-radius: 10px;
+}
+
+.price {
+  margin: 0px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 12px 0px;
+}
+
+.update {
+  display: flex;
+  margin: 0px 16px;
+  padding: 32px 0px;
+  scroll-behavior: smooth;
+  overflow-x: auto; /* 确保滚动条显示 */
+  white-space: nowrap;
+}
+
+.update-img {
+  flex-shrink: 0;
+  display: inline-block;
+  width: 150px;
+  margin-right: 12px;
+  height: 150px;
+}
+
+.update-placeholder {
+  margin-right: 12px;
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.update-placeholder::before {
+  content: '';
+  position: absolute;
+  width: 35.25px;
+  border-top: 2.16px solid #6a6a6a;
+}
+
+.update-placeholder::after {
+  content: '';
+  position: absolute;
+  height: 35.25px;
+  border-left: 2.16px solid #6a6a6a;
+}
+
+.add-location {
+  color: #989798;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin: 0px 16px;
+  padding: 14px 0px;
+}
+
+.status {
+  color: #989798;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin: 0px 16px;
+  padding: 14px 0px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.category {
+  color: #989798;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin: 0px 16px;
+  padding: 14px 0px;
+}
+
+.right-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.buttom-btn {
+  margin: 0px 16px;
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: #fcd64d;
+}
+
+button::after {
+  border: none;
 }
