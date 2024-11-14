@@ -2,36 +2,82 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
 }
 
 .goods-image {
   width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
+  max-height: 40vh;
+  position: relative;
+}
+
+.price {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  background-color: #fcd64d;
+  padding: 4px;
+  padding-left: 18px;
+  padding-right: 12px;
+  border-radius: 0px 12px 12px 0px;
 }
 
 .description {
+  padding: 0 16px;
   margin: 20px 0;
-  text-align: center;
-  font-size: 16px;
-  color: #666;
+  font-size: 18px;
 }
 
-.button-container {
+.about {
+  font-size: 14px;
+  color: black;
+}
+.sub-description {
+  font-size: 12px;
+  color: #808080;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.text {
+  color: black
+}
+.about {
   margin-top: 20px;
 }
 
+.button-container {
+  display: flex;
+  padding: 0px 16px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn {
+  width: 22px;
+  height: 22px;
+}
+
 .want-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
+  background-color: #fcd64d;
+  color: black;
+  padding: 10px 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 30%;
   font-size: 16px;
   cursor: pointer;
+  margin: 0;
+}
+
+.left-btns {
+  display: flex;
+  align-self: center;
+  gap: 10px;
+}
+
+button::after {
+  border: none;
 }
 
 .want-button[data-status="true"] {
