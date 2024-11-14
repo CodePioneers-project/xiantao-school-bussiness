@@ -183,6 +183,7 @@ Page({
       // 将表单数据存储到本地存储中
       let postedItems = wx.getStorageSync('info') || [];
       postedItems.push({
+        id: new Date().getTime(), // 使用时间戳作为唯一ID
         title: value.name,
         description: value.describle,
         price: value.price,

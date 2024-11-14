@@ -1,0 +1,30 @@
+<!-- index.wxml -->
+<view class="page">
+  <view class="container">
+    <view class="product-container">
+      <view wx:for="{{postedItems}}" wx:key="index" wx:for-item="item" class="product-item">
+        <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="5000" duration="1000">
+          <block wx:for="{{item.images}}" wx:key="index">
+            <swiper-item>
+              <image src="{{item}}" class="product-img" mode="aspectFill" bindtap="navigateToGoodsInfo" data-id="{{item.id}}"></image>
+            </swiper-item>
+          </block>
+        </swiper>
+        <text class="product-name">{{ item.title }}</text>
+        <text class="product-type">{{ item.classification }}</text>
+        <text class="product-price">
+          <text class="product-unit">￥</text>
+          <text>{{ item.price }}</text>
+        </text>
+        <view class="product-user">
+          <image class="user-img" src="/img/home/product1-icon.png" />
+          <text class="user-name">{{ item.userName }}</text>
+          <button class="want-button" bindtap="toggleWant" data-id="{{item.id}}" data-want="{{item.want ? '已想要' : '我想要'}}">
+            {{item.want ? '已想要' : '我想要'}}
+          </button>
+        </view>
+      </view>
+    </view>
+    <text class="no-more">没有更多啦...</text>
+  </view>
+</view>

@@ -1,11 +1,11 @@
 <view class="page">
-  <top-bar id="topBar" backgroundColor="#FCDB57">
+  <top-bar id="topBar" background='transparent' bar-style="3">
     <view class="back" catchtap="backView">
       <view class="icon" style="border-color: #000;"></view>
     </view>
   </top-bar>
 
-  <view class="top-color"></view>
+  <image class="top-color" src="/img/my/bg.png" />
   <view class="info-container">
     <view class="user-info">
       <image class="user-img" src="/img/my/my-img.png" />

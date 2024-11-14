@@ -8,12 +8,32 @@ App({
       apiUrl:'https://2.fanfpy.top/xianyu/api',
       userInfo:null
   },
+  onLaunch: function () {
+    const fs = wx.getFileSystemManager();
+    const filePath = wx.env.USER_DATA_PATH + '/info.json';
 
-  onLaunch: function (e) {
-    var that = this
-    //"getOenid"
-    console.log(that.getOpenid())
+    try {
+      // 检查文件是否存在
+      fs.accessSync(filePath);
+    } catch (e) {
+      // 如果文件不存在，创建一个空文件
+      fs.writeFileSync(filePath, '[]', 'utf-8');
+    }
+
+        // 读取 info.json 文件
+        wx.request({
+          url: '/path/to/info.json', // 替换为 info.json 文件的路径
+          success: (res) => {
+            const postedItems = res.data;
+            wx.setStorageSync('info', postedItems);
+          },
+          fail: (err) => {
+            console.error('Failed to load info.json', err);
+          }
+        });
   },
+
+
     getOpenid:function(){
       var that = this
       wx.login({

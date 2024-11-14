@@ -2,9 +2,9 @@
   <top-bar id="topBar" backgroundColor="#ECECEC"></top-bar>
 
   <view class="header">
-    <image class="header-img" src="/img/my/my-img.png" />
+    <image class="header-img" src="{{userInfo.avatarUrl || '/img/my/my-img.png'}}" bindtap="getUserProfile" />
     <view class="header-info">
-      <text class="user-name">昵称：未填写></text>
+      <text class="user-name">昵称：{{userInfo.nickName || '未填写'}}</text>
       <text class="user-code">账号：xt790539434929</text>
     </view>
   </view>

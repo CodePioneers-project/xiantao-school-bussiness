@@ -9,6 +9,11 @@
   height: 60px;
 }
 
+.container button::after {
+  border: none;
+  border-radius: 0;
+}
+
 .form-item {
   background-color: #fff;
   height: 40px;
@@ -42,10 +47,8 @@
 }
 
 .form-item label {
-  width: 60px;
   font-size: 16px;
   color: #333;
-  margin-right: 10px;
 }
 
 .form-item input, .form-item textarea, .form-item .picker {
@@ -75,10 +78,35 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  transform: translateY(-20%);
+  transform: translateY(0%);
   width: 100%;
   padding: 70px 0;
   background-color: #fff;
+}
+
+@keyframes slide-down {
+  0%{transform:scale(1,0);}
+  100%{transform:scale(1,1);}
+}
+
+@-webkit-keyframes slide-down {
+  0%{-webkit-transform:scale(1,0);}
+  100%{-webkit-transform:scale(1,1);}
+}
+
+.container .active {
+  max-height: 322px;
+  transition: max-height .3s ease-in;
+  transform-origin: 0% 100%;
+  animation: slide-down 0.3s ease-in;
+  -webkit-animation: slide-down 0.3s ease-in;
+}
+
+.container .hidden {
+  max-height: 0px;
+  overflow: auto;
+  transform-origin: 100% 0%;
+  transition: max-height .3s ease-out;
 }
 
 .logout-modal > text {

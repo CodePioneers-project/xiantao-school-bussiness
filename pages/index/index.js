@@ -58,28 +58,6 @@ Page({
     this.loadPostedItems();
   },
 
-  // 处理“我想要”按钮的点击事件
-  toggleWant: function(e) {
-    const id = e.currentTarget.dataset.id;
-    const items = this.data.postedItems;
-    const itemIndex = items.findIndex(item => item.id === id);
-    if (itemIndex !== -1) {
-      items[itemIndex].want = !items[itemIndex].want;
-      this.setData({ postedItems: items });
-    }
-  },
-
-  // 处理“不喜欢”按钮的点击事件
-  dislikeItem: function(e) {
-    const id = e.currentTarget.dataset.id;
-    const items = this.data.postedItems;
-    const itemIndex = items.findIndex(item => item.id === id);
-    if (itemIndex !== -1) {
-      items.splice(itemIndex, 1);
-      this.setData({ postedItems: items });
-      wx.setStorageSync('postedItems', items);
-    }
-  },
 
   // 导航到商品详情页面
   navigateToGoodsInfo: function(e) {
@@ -112,14 +90,14 @@ Page({
     });
   },
 
-    navigateToGoodsInfo: function (e) {
-      // 获取传递的商品ID
-      const goodsId = e.currentTarget.dataset.id;
-      // 使用wx.navigateTo跳转到goodsInfo页面，并传递商品ID
-      wx.navigateTo({
-        url: '/pages/goodsInfo/goodsInfo?id=' + goodsId
-      });
-    }
+  // 点击商品图片时跳转到 goodsInfo 页面
+  navigateToGoodsInfo: function(e) {
+    const imageUrl = e.currentTarget.dataset.image;
+    wx.navigateTo({
+      url: `/pages/goodsInfo/goodsInfo?imageUrl=${encodeURIComponent(imageUrl)}`,
+    });
+  
+  }
 });
 
 

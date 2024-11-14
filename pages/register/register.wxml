@@ -1,2 +1,2 @@
-<!--pages/register/register.wxml-->
-<text>pages/register/register.wxml</text>
+<!-- index.wxml -->
+<button bindtap="checkStorage">查看本地存储</button>
