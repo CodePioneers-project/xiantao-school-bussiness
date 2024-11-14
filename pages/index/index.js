@@ -112,14 +112,12 @@ Page({
     });
   },
 
-    navigateToGoodsInfo: function (e) {
-      // 获取传递的商品ID
-      const goodsId = e.currentTarget.dataset.id;
-      // 使用wx.navigateTo跳转到goodsInfo页面，并传递商品ID
-      wx.navigateTo({
-        url: '/pages/goodsInfo/goodsInfo?id=' + goodsId
-      });
-    }
+  navigateToGoodsInfo: function(event) {
+    const itemId = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/goodsInfo/goodsInfo?id=${itemId}`,
+    });
+  }
 });
 
 

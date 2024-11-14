@@ -1,108 +1,53 @@
-var app = getApp();
-
 Page({
   data: {
-    barList: [
-      {
-        id: 1,
-        title: '推荐',
-        label: '服饰',
-        img:  '/img/home/bar1.png',
-        select: true
-      },
-      {
-        id: 2,
-        title: '服饰',
-        label: '饮食',
-        img:  '/img/home/bar2.png',
-      },
-      {
-        id: 3,
-        title: '美妆',
-        label: '鞋包',
-        img:  '/img/home/bar3.png',
-      },
-      {
-        id: 4,
-        title: '饮食',
-        label: '生活用品',
-        img:  '/img/home/bar4.png',
-      },
-      {
-        id: 5,
-        title: '鞋包',
-        label: '数码用品',
-        img:  '/img/home/bar5.png',
-      },
-      {
-        id: 6,
-        label: '饰品',
-        icon:  '/img/home/bar-icon.png',
-        img:  '/img/home/bar6.png',
-      }
-    ]
-  },
-
-  onLoad: function () {
-    this.loadPostedItems();
-  },
-
-  loadPostedItems: function () {
-    const postedItems = wx.getStorageSync('info') || [];
-    this.setData({
-      postedItems: postedItems
-    });
-  },
-
-  onShow: function () {
-    this.loadPostedItems();
-  },
-
-  // 处理“我想要”按钮的点击事件
-  toggleWant: function(e) {
-    const id = e.currentTarget.dataset.id;
-    const items = this.data.postedItems;
-    const itemIndex = items.findIndex(item => item.id === id);
-    if (itemIndex !== -1) {
-      items[itemIndex].want = !items[itemIndex].want;
-      this.setData({ postedItems: items });
+    goods: {
+      title: '',
+      description: '',
+      price: '',
+      classification: '',
+      images: []
     }
   },
 
-  // 处理“不喜欢”按钮的点击事件
-  dislikeItem: function(e) {
-    const id = e.currentTarget.dataset.id;
-    const items = this.data.postedItems;
-    const itemIndex = items.findIndex(item => item.id === id);
-    if (itemIndex !== -1) {
-      items.splice(itemIndex, 1);
-      this.setData({ postedItems: items });
-      wx.setStorageSync('postedItems', items);
+  onLoad: function(options) {
+    const goodsId = options.id; // 假设通过商品ID来查找商品
+    this.getGoodsInfoFromStorage(goodsId);
+  },
+
+  getGoodsInfoFromStorage: function(goodsId) {
+    try {
+      const postedItems = wx.getStorageSync('info') || [];
+      console.log('Stored items:', postedItems); // 调试输出
+
+      if (postedItems.length > 0) {
+        // 找到对应商品的详细信息
+        const goods = postedItems.find(item => item.id === parseInt(goodsId));
+        console.log('Found goods:', goods); // 调试输出
+
+        if (goods) {
+          this.setData({
+            goods: goods
+          });
+        } else {
+          wx.showToast({
+            title: '商品不存在',
+            icon: 'none'
+          });
+        }
+      } else {
+        wx.showToast({
+          title: '商品信息未找到',
+          icon: 'none'
+        });
+      }
+    } catch (e) {
+      wx.showToast({
+        title: '读取商品信息失败',
+        icon: 'none'
+      });
+      console.error('Error reading goods info:', e); // 调试输出
     }
   },
 
-
-
-
-
-
-
-  toggleWant: function(e) {
-    const productId = e.currentTarget.dataset.id;
-    const want = e.currentTarget.dataset.want;
-    const updatedItems = this.data.postedItems.map(item => {
-      if (item.id === productId) {
-        item.want = want === '我想要';
-      }
-      return item;
-    });
-    this.setData({
-      postedItems: updatedItems
-    });
-  },
-
-
+  // 其他函数，如联系卖家、立即购买等
 });
-
-
-

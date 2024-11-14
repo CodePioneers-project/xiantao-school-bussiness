@@ -21,8 +21,8 @@
 }
 
 .top-color {
-  background-color: #FCDB57;
-  height: 200px;
+  height: 280px;
+  width: 100%;
 }
 
 .info-container {

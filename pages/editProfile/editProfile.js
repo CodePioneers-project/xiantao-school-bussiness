@@ -15,7 +15,8 @@ Page({
       show: false,
       line: false,
       avatar: ''
-    }
+    },
+    logoutFlag: false,
   },
 
   onLoad: function (options) {
@@ -79,6 +80,18 @@ Page({
     });
   },
 
+  openLogoutModal() {
+    this.setData({
+      'logoutFlag': !this.data.logoutFlag,
+    });
+  },
+
+  cancelClick() {
+    this.setData({
+      'logoutFlag': false,
+    });
+  },
+
   // 保存用户信息
   saveUserInfo() {
     const userInfo = this.data.userInfo;
@@ -132,5 +145,19 @@ Page({
 
     // 返回上一页
     wx.navigateBack();
-  }
+  },
+
+  // 退出登录
+  exitClick() {
+    this.setData({
+      'login.show': false,
+      'login.line': false,
+      'login.avatar': ''
+    });
+    wx.showToast({
+      title: '退出登录成功',
+      icon: 'success',
+      duration: 2000
+    });
+  },
 });

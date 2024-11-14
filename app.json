@@ -33,7 +33,7 @@
         "selectedIconPath": "/img/home-select.png"
       },
       {
-        "pagePath": "pages/goodsInfo/goodsInfo",
+        "pagePath": "pages/classInfo/classInfo",
         "text": "分享",
         "color": "#000",
         "selectedColor": "#000",
