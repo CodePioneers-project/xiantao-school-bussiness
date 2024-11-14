@@ -1,119 +1,108 @@
+var app = getApp();
+
 Page({
   data: {
-    messages: [
+    barList: [
       {
-        type: 'general',
-        sender: 'other', // other表示对方，self表示自己
-        avatar: '../../img/other_avatar.png',
-        text: '这是对方发来的普通消息',
-        time: '2024-10-16 14:20'
+        id: 1,
+        title: '推荐',
+        label: '服饰',
+        img:  '/img/home/bar1.png',
+        select: true
       },
       {
-        type: 'general',
-        sender: 'self',
-        avatar: '../../img/self_avatar.png',
-        text: '这是我发出的普通消息',
-        time: '2024-10-16 14:22'
+        id: 2,
+        title: '服饰',
+        label: '饮食',
+        img:  '/img/home/bar2.png',
       },
       {
-        type: 'payment',
-        text: '我已付款，请确认取货信息',
-        details: {
-          location: '教学楼B栋',
-          time: '2024年10月24日 16:20',
-        },
-        time: '2024-10-16 15:20'
+        id: 3,
+        title: '美妆',
+        label: '鞋包',
+        img:  '/img/home/bar3.png',
       },
       {
-        type: 'confirmation',
-        title: '我已确认',
-        text: '请按时交接',
-        sender: 'other',
-        avatar: '../../img/seller_avatar.png',
-        time: '2024-10-16 15:22'
+        id: 4,
+        title: '饮食',
+        label: '生活用品',
+        img:  '/img/home/bar4.png',
       },
       {
-        type: 'completion',
-        text: '你已确认收货，交易成功',
-        time: '2024-10-24 16:22'
+        id: 5,
+        title: '鞋包',
+        label: '数码用品',
+        img:  '/img/home/bar5.png',
+      },
+      {
+        id: 6,
+        label: '饰品',
+        icon:  '/img/home/bar-icon.png',
+        img:  '/img/home/bar6.png',
       }
-    ],
-    messageInput: '',
-    emojiList: ["😀", "😂", "😊", "😍", "😎", "🤔", "😢", "😡", "👍", "👎"],
-    showEmojiPicker: false,
-    showMoreOptions: false
+    ]
   },
 
-  openEmoji() {
-    if (this.data.showMoreOptions) {
-      this.setData({
-        showMoreOptions: !this.data.showMoreOptions
-      })
-    }
+  onLoad: function () {
+    this.loadPostedItems();
+  },
+
+  loadPostedItems: function () {
+    const postedItems = wx.getStorageSync('info') || [];
     this.setData({
-      showEmojiPicker: !this.data.showEmojiPicker
+      postedItems: postedItems
     });
   },
 
-  // 选择 Emoji 表情
-  selectEmoji(e) {
-    const { emoji } = e.currentTarget.dataset;
-    this.setData({
-      messageInput: this.data.messageInput + emoji,
-      showEmojiPicker: false // 选择后隐藏 Emoji 选择器
-    });
-  },
-  // 输入框变化事件
-  handleInput(e) {
-    this.setData({
-      messageInput: e.detail.value
-    });
+  onShow: function () {
+    this.loadPostedItems();
   },
 
-  // 发送消息
-  send() {
-    const { messageInput, messages } = this.data;
-    if (messageInput.trim()) {
-      this.setData({
-        messages: [...messages, { type: 'general', sender: 'self', text: messageInput, time: new Date().toLocaleString() }],
-        messageInput: ''
-      });
+  // 处理“我想要”按钮的点击事件
+  toggleWant: function(e) {
+    const id = e.currentTarget.dataset.id;
+    const items = this.data.postedItems;
+    const itemIndex = items.findIndex(item => item.id === id);
+    if (itemIndex !== -1) {
+      items[itemIndex].want = !items[itemIndex].want;
+      this.setData({ postedItems: items });
     }
   },
 
-  handlePay() {
-    wx.showToast({
-      title: '跳转到付款页面',
-      icon: 'success',
-    });
+  // 处理“不喜欢”按钮的点击事件
+  dislikeItem: function(e) {
+    const id = e.currentTarget.dataset.id;
+    const items = this.data.postedItems;
+    const itemIndex = items.findIndex(item => item.id === id);
+    if (itemIndex !== -1) {
+      items.splice(itemIndex, 1);
+      this.setData({ postedItems: items });
+      wx.setStorageSync('postedItems', items);
+    }
   },
 
-  moreOptions() {
-    if (this.data.showEmojiPicker) {
-      this.setData({
-        showEmojiPicker: !this.data.showEmojiPicker
-      })
-    }
+
+
+
+
+
+
+  toggleWant: function(e) {
+    const productId = e.currentTarget.dataset.id;
+    const want = e.currentTarget.dataset.want;
+    const updatedItems = this.data.postedItems.map(item => {
+      if (item.id === productId) {
+        item.want = want === '我想要';
+      }
+      return item;
+    });
     this.setData({
-      showMoreOptions: !this.data.showMoreOptions
+      postedItems: updatedItems
     });
   },
 
-    // 拍照事件
-    takePhoto() {
-      wx.showToast({
-        title: '打开相机',
-        icon: 'none'
-      });
-      this.setData({ showMoreOptions: false }); // 关闭弹出层
-    },
-  
-    // 选择相册事件
-    chooseAlbum() {
-      wx.showToast({
-        title: '打开相册',
-        icon: 'none'
-      });
-      this.setData({ showMoreOptions: false }); // 关闭弹出层
-    }
+
 });
+
+
+

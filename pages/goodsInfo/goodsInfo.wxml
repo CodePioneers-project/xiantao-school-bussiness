@@ -1,95 +1,30 @@
-<view class="chat-container">
-  <!-- 商品信息 -->
-  <view class="product-info">
-    <image class="product-image" src="../../img/laopo.jpg" mode="aspectFill" />
-    <view class="product-details">
-      <text class="product-price">￥15</text>
-    </view>
-    <button class="pay-button" bindtap="handlePay">去付款</button>
-  </view>
-
-  <!-- 消息列表 -->
-  <view class="message-list">
-    <block wx:for="{{messages}}" wx:key="index">
-      <!-- 一般对话消息 -->
-      <view wx:if="{{item.type === 'general'}}" class="message general-message {{item.sender === 'self' ? 'self' : 'other'}}">
-        <text class="message-time">{{item.time}}</text>
-        <view class="message-wrapper">
-          <image wx:if="{{item.sender === 'other'}}" class="user-avatar" src="../../img/laopo.jpg" />
-          <view class="general-content">{{item.text}}</view>
-          <image wx:if="{{item.sender === 'self'}}" class="user-avatar" src="../../img/laopo.jpg" />
+<!-- index.wxml -->
+<view class="page">
+  <view class="container">
+    <view class="product-container">
+      <view wx:for="{{postedItems}}" wx:key="index" wx:for-item="item" class="product-item">
+        <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="5000" duration="1000">
+          <block wx:for="{{item.images}}" wx:key="index">
+            <swiper-item>
+              <image src="{{item}}" class="product-img" mode="aspectFill" bindtap="navigateToGoodsInfo" data-id="{{item.id}}"></image>
+            </swiper-item>
+          </block>
+        </swiper>
+        <text class="product-name">{{ item.title }}</text>
+        <text class="product-type">{{ item.classification }}</text>
+        <text class="product-price">
+          <text class="product-unit">￥</text>
+          <text>{{ item.price }}</text>
+        </text>
+        <view class="product-user">
+          <image class="user-img" src="/img/home/product1-icon.png" />
+          <text class="user-name">{{ item.userName }}</text>
+          <button class="want-button" bindtap="toggleWant" data-id="{{item.id}}" data-want="{{item.want ? '已想要' : '我想要'}}">
+            {{item.want ? '已想要' : '我想要'}}
+          </button>
         </view>
       </view>
-
-      <!-- 已付款消息（右侧） -->
-      <view wx:elif="{{item.type === 'payment'}}" class="message payment-message self">
-        <text class="message-time">{{item.time}}</text>
-        <view class="message-wrapper right">
-          <view class="payment-content">
-            <text class="payment-text">{{item.text}}</text>
-            <text class="payment-details">地点：{{item.details.location}}</text>
-            <text class="payment-details">时间：{{item.details.time}}</text>
-            <view class="payment-options">
-              <button class="payment-option first-option">信息修改</button>
-              <button class="payment-option second-option">查看详情</button>
-            </view>
-          </view>
-          <image class="user-avatar" src="../../img/laopo.jpg" />
-        </view>
-      </view>
-
-      <!-- 卖家确认消息（左侧） -->
-      <view wx:elif="{{item.type === 'confirmation'}}" class="message confirmation-message other">
-        <text class="message-time">{{item.time}}</text>
-        <view class="message-wrapper">
-          <image class="user-avatar" src="../../img/laopo.jpg" />
-          <view class="confirmation-content">
-            <view class="confirmation-header">{{item.title}}</view>
-            <view class="confirmation-main">
-              {{item.text}}
-            </view>
-          </view>
-        </view>
-      </view>
-
-      <!-- 系统完成消息（居中） -->
-      <view wx:elif="{{item.type === 'completion'}}" class="message completion-message">
-        <text class="message-time">{{item.time}}</text>
-        <view class="completion-text">{{item.text}}</view>
-      </view>
-    </block>
+    </view>
+    <text class="no-more">没有更多啦...</text>
   </view>
-
-  <!-- 输入框 -->
-  <view class="flex-col">
-    <view class="input-container">
-      <input type="text" placeholder="发消息..." bindinput="handleInput" value="{{messageInput}}" class="input" confirm-type="send" bindconfirm="send" />
-      <view class="input-icons">
-        <button bindtap="openEmoji" class="emoji-button">
-          <image class="emoji-img" src="../../img/emoji.png" />
-        </button>
-        <button bindtap="moreOptions" class="more-button">
-          <image class="more-img" src="../../img/more_action.png" />
-        </button>
-      </view>
-    </view>
-    <view wx:if="{{showEmojiPicker}}" class="emoji-picker">
-      <block wx:for="{{emojiList}}" wx:key="index">
-        <text bindtap="selectEmoji" data-emoji="{{item}}" class="emoji-item">{{item}}</text>
-      </block>
-    </view>
-  </view>
-
-  <!-- 更多选项弹出层 -->
-  <view wx:if="{{ showMoreOptions}}" class="more-options-panel">
-    <view class="option-item" bindtap="takePhoto">
-      <image src="../../img/camera.png" class="option-icon" />
-      <text>拍照</text>
-    </view>
-    <view class="option-item" bindtap="chooseAlbum">
-      <image src="../../img/ablum.png" class="option-icon" />
-      <text>相册</text>
-    </view>
-  </view>
-
 </view>

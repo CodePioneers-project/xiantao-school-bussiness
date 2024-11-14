@@ -87,8 +87,40 @@ Page({
     wx.navigateTo({
       url: `/pages/goodsInfo/goodsInfo?id=${id}`
     });
-  }
+  },
 
 
-  
+
+  navigateToGoodsInfo: function(e) {
+    const productId = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/goodsInfo/goodsInfo?id=${productId}`
+    });
+  },
+
+  toggleWant: function(e) {
+    const productId = e.currentTarget.dataset.id;
+    const want = e.currentTarget.dataset.want;
+    const updatedItems = this.data.postedItems.map(item => {
+      if (item.id === productId) {
+        item.want = want === '我想要';
+      }
+      return item;
+    });
+    this.setData({
+      postedItems: updatedItems
+    });
+  },
+
+    navigateToGoodsInfo: function (e) {
+      // 获取传递的商品ID
+      const goodsId = e.currentTarget.dataset.id;
+      // 使用wx.navigateTo跳转到goodsInfo页面，并传递商品ID
+      wx.navigateTo({
+        url: '/pages/goodsInfo/goodsInfo?id=' + goodsId
+      });
+    }
 });
+
+
+

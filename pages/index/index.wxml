@@ -1,3 +1,4 @@
+<!-- index.wxml -->
 <view class="page">
   <top-bar id="topBar" backgroundColor="#FCDB57">
     <view style="display: flex; align-items: center;">
@@ -24,41 +25,25 @@
     </view>
     <view class="product-container">
       <view wx:for="{{postedItems}}" wx:key="index" wx:for-item="item" class="product-item">
-        <view
-        bindtap="navigateToGoodsInfo" data-id="{{item.id}}">
-          <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}"    interval="5000" duration="1000">
-            <block wx:for="{{item.images}}" wx:key="index">
-              <swiper-item>
-                <image src="{{item}}" class="product-img" mode="aspectFill"></image>
-              </swiper-item>
-            </block>
-          </swiper>
-          <text class="product-name">{{ item.title }}</text>
-          <text class="product-type">{{ item.classification }}</text>
-          <text class="product-price">
-            <text class="product-unit">￥</text>
-            <text>{{ item.price }}</text>
-          </text>
-          <view class="product-user">
-            <image class="user-img" src="/img/home/product1-icon.png" />
-            <text class="user-name">再也不熬夜</text>
-          </view>
-          <button class="want-button" bindtap="toggleWant" data-id="{{item.id}}" data-want="{{item.want ? '已想要' : '我想要'}}">
-            {{item.want ? '已想要' : '我想要'}}
-          </button>
+        <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="5000" duration="1000">
+          <block wx:for="{{item.images}}" wx:key="index">
+            <swiper-item>
+              <image src="{{item}}" class="product-img" mode="aspectFill" bindtap="navigateToGoodsInfo" data-id="{{item.id}}"></image>
+            </swiper-item>
+          </block>
+        </swiper>
+        <text class="product-name">{{ item.title }}</text>
+        <text class="product-type">{{ item.classification }}</text>
+        <text class="product-price">
+          <text class="product-unit">￥</text>
+          <text>{{ item.price }}</text>
+        </text>
+        <view class="product-user">
+          <image class="user-img" src="/img/home/product1-icon.png" />
+          <text class="user-name">{{ item.userName }}</text>
         </view>
       </view>
     </view>
     <text class="no-more">没有更多啦...</text>
-    <view class="welcome">
-      <image class="welcome-img" src="/img/home/welcome.png" />
-      <view class="welcome-text-container">
-        <view class="welcome-text">
-          <text class="title">欢迎来到闲淘~</text>
-          <text class="description">赶快登录打开新世界吧</text>
-        </view>
-        <button class="welcome-login">马上登录</button>
-      </view>
-    </view>
   </view>
 </view>
