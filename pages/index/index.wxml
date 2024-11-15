@@ -15,13 +15,15 @@
       <view wx:for="{{barList}}" wx:key="index" wx:for-item="item" class="bar-item">
         <image wx:if="{{ item.icon }}" class="bar-img" src="/img/home/bar-icon.png" />
         <text wx:else class="{{ item.select ? 'select' : 'no-select' }}">{{ item.title }}</text>
-        <image class="bar-item-img" src="{{ item.img }}" />
-        <text>{{ item.label }}</text>
+        <view class="item-list">
+          <image class="bar-item-img" src="{{ item.img }}" />
+          <text class="bar-text">{{ item.label }}</text>
+        </view>
       </view>
     </view>
     <view class="position">
       <image class="position-img" src="/img/home/position.png" />
-      <text>常州信息职业技术学院</text>
+      <text>请选择所在校区</text>
     </view>
     <view class="product-container">
       <view wx:for="{{postedItems}}" wx:key="index" wx:for-item="item" class="product-item">
@@ -45,5 +47,15 @@
       </view>
     </view>
     <text class="no-more">没有更多啦...</text>
+    <view class="welcome">
+      <image class="welcome-img" src="/img/home/welcome.png" />
+      <view class="welcome-text-container">
+        <view class="welcome-text">
+          <text class="title">欢迎来到闲淘~</text>
+          <text class="description">赶快登录打开新世界吧</text>
+        </view>
+        <button class="welcome-login">马上登录</button>
+      </view>
+    </view>
   </view>
 </view>

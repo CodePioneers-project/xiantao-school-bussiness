@@ -12,23 +12,24 @@
   height: 36px;
 }
 
-.search .icon-search{
+.search .icon-search {
   width: 16px;
   height: 16px;
   position: absolute;
-  top: 50%;
-  left: 15rpx;
-  transform: translateY(-50%);
+  top: 52%;
+  left: 12px;
+  transform: translateY(-52%);
   color: #333;
 }
 
-.search .input{
+.search .input {
   border-radius: 100rpx;
   background-color: transparent;
-  border: 1px solid #707070;
+  border: 1px solid #2B2B2B;
   color: #707070;
   height: 100%;
   padding: 0 30rpx 0 60rpx;
+  font-size: 16px;
 }
 
 .container {
@@ -50,27 +51,41 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .bar-container .bar-item .no-select {
   color: #808080;
+  font-size: 20px;
 }
 
 .bar-container .bar-item .select {
   color: #262626;
+  font-size: 20px;
 }
 
 .bar-container .bar-item .bar-img {
   width: 20px;
   height: 20px;
+  margin: auto;
 }
 
-.bar-container .bar-item .bar-item-img {
-  width: 30px;
-  height: 30px;
+.bar-container .bar-item .item-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar-container .bar-item .item-list .bar-item-img {
+  width: 25px;
+  height: 25px;
   margin-bottom: 10px;
   margin-top: 20px;
+}
+
+.bar-container .bar-item .item-list .bar-text {
+  font-size: 14px;
+  color: #262626;
 }
 
 .position {
@@ -197,11 +212,11 @@
 }
 
 .welcome .welcome-text-container .welcome-text .title {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .welcome .welcome-text-container .welcome-text .description {
-  font-size: 10px;
+  font-size: 12px;
   color: #C6C6C6;
 }
 
