@@ -67,7 +67,7 @@
   <view class="flex-col">
     <view class="input-container">
       <input type="text" placeholder="发消息..." bindinput="handleInput" value="{{messageInput}}" class="input" confirm-type="send" bindconfirm="send" />
-      <view class="input-icons">
+      <view wx:if="{{(showMoreOptions || !messageInput) && !showEmojiPicker && !messageInput}}" class="input-icons">
         <button bindtap="openEmoji" class="emoji-button">
           <image class="emoji-img" src="../../img/emoji.png" />
         </button>
@@ -75,24 +75,46 @@
           <image class="more-img" src="../../img/more_action.png" />
         </button>
       </view>
+      <view wx:if="{{showEmojiPicker}}" class="input-icons">
+        <button bindtap="moreOptions" class="more-button">
+          <image class="more-img" src="../../img/more_action.png" />
+        </button>
+        <button bindtap="handleSubmit" class="submit-button">
+          发送
+        </button>
+      </view>
+      <view wx:if="{{!!messageInput && !showEmojiPicker}}" class="input-icons">
+        <button bindtap="openEmoji" class="emoji-button">
+          <image class="emoji-img" src="../../img/emoji.png" />
+        </button>
+        <button bindtap="handleSubmit" class="submit-button">
+        发送
+        </button>
+      </view>
     </view>
-    <view wx:if="{{showEmojiPicker}}" class="emoji-picker">
-      <block wx:for="{{emojiList}}" wx:key="index">
-        <text bindtap="selectEmoji" data-emoji="{{item}}" class="emoji-item">{{item}}</text>
-      </block>
+    <view wx:if="{{showEmojiPicker}}">
+    <view class="full-emoji-text">全部表情</view>
+      <view class="emoji-picker">
+        <block wx:for="{{groupedEmojiList}}" wx:key="index">
+          <view class="emoji-row">
+            <block wx:for="{{item}}" wx:key="subIndex">
+              <image bindtap="selectEmoji" data-emoji="{{item}}" class="emoji-item" src="/img/emoji/{{item}}.png" />
+            </block>
+          </view>
+        </block>
+      </view>
     </view>
   </view>
 
   <!-- 更多选项弹出层 -->
   <view wx:if="{{ showMoreOptions}}" class="more-options-panel">
-    <view class="option-item" bindtap="takePhoto">
-      <image src="../../img/camera.png" class="option-icon" />
-      <text>拍照</text>
-    </view>
     <view class="option-item" bindtap="chooseAlbum">
       <image src="../../img/ablum.png" class="option-icon" />
-      <text>相册</text>
+      <text class="option-text">相册</text>
+    </view>
+    <view class="option-item" bindtap="takePhoto">
+      <image src="../../img/camera.png" class="option-icon" />
+      <text class="option-text">拍摄</text>
     </view>
   </view>
-
 </view>

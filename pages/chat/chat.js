@@ -1,7 +1,6 @@
 Page({
   data: {
-    messages: [
-      {
+    messages: [{
         type: 'general',
         sender: 'other', // other表示对方，self表示自己
         avatar: '../../img/other_avatar.png',
@@ -39,9 +38,28 @@ Page({
       }
     ],
     messageInput: '',
-    emojiList: ["😀", "😂", "😊", "😍", "😎", "🤔", "😢", "😡", "👍", "👎"],
+    emojiList: [],
+    groupedEmojiList: [],
     showEmojiPicker: false,
     showMoreOptions: false
+  },
+
+
+  onLoad() {
+    // 生成 emojiList
+    const emojiList = Array.from({ length: 20 }, (_, index) => `${Math.floor(index / 5) + 1}-${(index % 5) + 1}`);
+    this.setData({
+      emojiList,
+      groupedEmojiList: this.groupByRows(emojiList, 5), // 分组
+    });
+  },
+  // 分组方法：将数组按每行 5 个分组
+  groupByRows(list, rowSize) {
+    const grouped = [];
+    for (let i = 0; i < list.length; i += rowSize) {
+      grouped.push(list.slice(i, i + rowSize));
+    }
+    return grouped;
   },
 
   openEmoji() {
@@ -57,11 +75,7 @@ Page({
 
   // 选择 Emoji 表情
   selectEmoji(e) {
-    const { emoji } = e.currentTarget.dataset;
-    this.setData({
-      messageInput: this.data.messageInput + emoji,
-      showEmojiPicker: false // 选择后隐藏 Emoji 选择器
-    });
+
   },
   // 输入框变化事件
   handleInput(e) {
@@ -72,10 +86,18 @@ Page({
 
   // 发送消息
   send() {
-    const { messageInput, messages } = this.data;
+    const {
+      messageInput,
+      messages
+    } = this.data;
     if (messageInput.trim()) {
       this.setData({
-        messages: [...messages, { type: 'general', sender: 'self', text: messageInput, time: new Date().toLocaleString() }],
+        messages: [...messages, {
+          type: 'general',
+          sender: 'self',
+          text: messageInput,
+          time: new Date().toLocaleString()
+        }],
         messageInput: ''
       });
     }
@@ -99,21 +121,25 @@ Page({
     });
   },
 
-    // 拍照事件
-    takePhoto() {
-      wx.showToast({
-        title: '打开相机',
-        icon: 'none'
-      });
-      this.setData({ showMoreOptions: false }); // 关闭弹出层
-    },
-  
-    // 选择相册事件
-    chooseAlbum() {
-      wx.showToast({
-        title: '打开相册',
-        icon: 'none'
-      });
-      this.setData({ showMoreOptions: false }); // 关闭弹出层
-    }
+  // 拍照事件
+  takePhoto() {
+    wx.showToast({
+      title: '打开相机',
+      icon: 'none'
+    });
+    this.setData({
+      showMoreOptions: false
+    }); // 关闭弹出层
+  },
+
+  // 选择相册事件
+  chooseAlbum() {
+    wx.showToast({
+      title: '打开相册',
+      icon: 'none'
+    });
+    this.setData({
+      showMoreOptions: false
+    }); // 关闭弹出层
+  }
 });
