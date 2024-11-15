@@ -56,6 +56,11 @@ Page({
 
   onShow: function () {
     this.loadPostedItems();
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      })
+    }
   },
 
   // 处理“我想要”按钮的点击事件

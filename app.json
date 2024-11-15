@@ -23,44 +23,39 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "custom": true,
+    "color": "#515151",
+    "selectedColor": "#DAA520",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "color": "#000",
-        "selectedColor": "#000",
         "iconPath": "/img/home.png",
         "selectedIconPath": "/img/home-select.png"
       },
       {
         "pagePath": "pages/classInfo/classInfo",
         "text": "分享",
-        "color": "#000",
-        "selectedColor": "#000",
         "iconPath": "/img/fenxiang.png",
         "selectedIconPath": "/img/fenxiang.png"
       },
       {
         "pagePath": "pages/add/add",
         "text": "发布",
-        "color": "#000",
-        "selectedColor": "#000",
         "iconPath": "/img/add.png",
         "selectedIconPath": "/img/add.png"
       },
       {
         "pagePath": "pages/chat/chat",
         "text": "聊天",
-        "color": "#000",
-        "selectedColor": "#000",
         "iconPath": "/img/goods-info.png",
         "selectedIconPath": "/img/goods-info.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "我的",
-        "color": "#000",
-        "selectedColor": "#000",
         "iconPath": "/img/user.png",
         "selectedIconPath": "/img/user-select.png"
       }
