@@ -5,11 +5,49 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isMyself: true,
+    currentTab: '1',
+    goodsWindowList: [
+      {
+        id: 1,
+        title: '迪士尼星黛露，冬日挂件，不迪士尼星黛露，冬日挂件，不',
+        type: '全新｜其他',
+        price: 49,
+        img: '/img/my/goodsWindow1.png',
+        userName: '再也不熬夜',
+        userImg: '/img/home/product1-icon.png'
+      },
+      {
+        id: 2,
+        title: '迪士尼星黛露，冬日挂件，不',
+        type: '全新｜其他',
+        price: 49,
+        img: '/img/my/goodsWindow1.png',
+        userName: '再也不熬夜',
+        userImg: '/img/home/product1-icon.png'
+      },
+      {
+        id: 3,
+        title: '迪士尼星黛露，冬日挂件，不',
+        type: '全新｜其他',
+        price: 49,
+        img: '/img/my/goodsWindow1.png',
+        userName: '再也不熬夜',
+        userImg: '/img/home/product1-icon.png'
+      }
+    ],
+    postList: [],
   },
 
   backView () {
     wx.navigateBack()
+  },
+
+  onTabClick(e) {
+    const tab = e.currentTarget.dataset.tab;
+    this.setData({
+      currentTab: tab,
+    });
   },
 
   // 基本信息点击事件

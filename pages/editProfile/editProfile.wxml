@@ -1,29 +1,31 @@
 <view class="container">
   <button class="form-item" open-type="chooseAvatar" bindchooseavatar="chooseAvatar">
     <label>头像</label>
-    <image class="user-img" src="{{login.avatar || '/img/my/my-img.png'}}" />
-    <view class="icon" ></view>
+    <image class="user-img" src="{{login.avatar || '/img/my/nickname-icon.png'}}" />
+    <view class="icon"></view>
   </button>
   <view class="form-item" bindtap="toNickNamePage">
     <label>昵称</label>
-    <view class="icon" ></view>
+    <view class="icon"></view>
   </view>
   <view class="form-item" bindtap="toUserProfileBgPage">
     <label>背景</label>
-    <view class="icon" ></view>
+    <view class="icon"></view>
   </view>
   <view class="form-item" bindtap="toUserIntroPage">
     <label>简介</label>
-    <view class="icon" ></view>
+    <view class="icon"></view>
   </view>
   <view class="form-item" bindtap="openLogoutModal">
     <label>退出登录</label>
-    <view class="icon" ></view>
+    <view class="icon"></view>
   </view>
 
-  <view wx:if="{{ logoutFlag }}" class="{{ logoutFlag ? 'active' : 'hidden' }} 'logout-modal'">
-    <text>您确认退出吗</text>
-    <button bindtap="exitClick" class="submit">确认</button>
-    <button bindtap="cancelClick">取消</button>
+  <view class="{{ logoutFlag ? 'active' : 'hidden' }} 'logout-modal'">
+    <view class="submit-box">
+      <text>您确认退出吗</text>
+      <button bindtap="exitClick" class="submit">确认</button>
+    </view>
+    <view class="cancel" bindtap="cancelClick">取消</view>
   </view>
 </view>

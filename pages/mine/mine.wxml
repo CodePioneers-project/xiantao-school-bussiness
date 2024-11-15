@@ -9,23 +9,54 @@
   <view class="info-container">
     <view class="user-info">
       <image class="user-img" src="/img/my/my-img.png" />
-      <text class="user-code">xt790539434929</text>
+      <text class="user-name">xt790539434929</text>
     </view>
-    <text class="personal-signature">个性签名</text>
+    <text class="personal-signature">本人洁癖+完美主义，所以不担心质量卫生问题！！！买前考虑清楚，所售物品实物与描述绝对相符！本人长相一般但为人正直从不欺人卖假！</text>
     <view class="edit-box">
       <view>
         <text class="follow">0关注</text>
         <text class="vermicelli">0粉丝</text>
       </view>
-      <button class="edit-btn" bindtap="toDetailPage">编辑资料</button>
+      <button wx:if="{{isMyself}}" class="edit-btn" bindtap="toDetailPage">编辑资料</button>
+      <button wx:else class="edit-btn">关注</button>
     </view>
     <view class="product-box">
-      <text class="select">商品橱窗</text>
-      <text>帖子</text>
+      <text class="{{ currentTab === '1' ? 'select' : '' }}" data-tab="1" bindtap="onTabClick">商品橱窗</text>
+      <text class="{{ currentTab === '2' ? 'select' : '' }}" data-tab="2" bindtap="onTabClick">帖子</text>
     </view>
-    <view class="product-container">
+    <view wx:if="{{ currentTab === '1' }}" class="goods-window-box">
+      <view wx:for="{{goodsWindowList}}" wx:key="index" wx:for-item="item" class="goods-window-item">
+        <image class="goods-img" src="{{ item.img }}" />
+        <text class="goods-name">{{ item.title }}</text>
+        <text class="goods-type">{{ item.type }}</text>
+        <view class="goods-product-price">
+          <text class="goods-product-unit">￥</text>
+          <text>{{ item.price }}</text>
+        </view>
+        <view class="goods-product-user">
+          <image class="goods-user-img" src="{{ item.userImg }}" />
+          <text class="goods-user-name">{{ item.userName }}</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{ currentTab === '2' }}" class="post-window-box">
+      <view wx:for="{{postList}}" wx:key="index" wx:for-item="item" class="post-window-item">
+        <image class="post-img" src="{{ item.img }}" />
+        <text class="post-name">{{ item.title }}</text>
+        <view class="post-product-user">
+          <image class="post-user-img" src="{{ item.userImg }}" />
+          <text class="post-user-name">{{ item.userName }}</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{ goodsWindowList.length === 0 && currentTab === '1' }}" class="product-container">
       <image src="/img/my/no-product-icon.png" />
-      <text class="title">这里没有任何宝贝</text>
+      <text class="title">卖家还没发过商品</text>
+      <text class="label">别人的世界花里胡哨，你的世界空空如也~</text>
+    </view>
+    <view wx:if="{{ postList.length === 0 && currentTab === '2' }}" class="product-container">
+      <image src="/img/my/no-product-icon.png" />
+      <text class="title">卖家还没发过帖子</text>
       <text class="label">别人的世界花里胡哨，你的世界空空如也~</text>
     </view>
   </view>

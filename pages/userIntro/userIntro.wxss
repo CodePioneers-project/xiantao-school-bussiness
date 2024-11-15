@@ -2,6 +2,8 @@
   height: 100%;
   background-color: #fff;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .container {
@@ -9,18 +11,18 @@
 }
 
 .page textarea {
+  box-sizing: border-box;
+  background-color: #eee;
   width: 100%;
   height: 200px;
-  background-color: #F7F7F7;
-  border-radius: 5px;
-  text-indent: 20px;
+  padding: 16px 14px;
+  border-radius: 10px;
 }
 
 .counter {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
-  font-size: 14px;
+  right: 15px;
+  bottom: 15px;
   color: #999;
 }
 
@@ -31,5 +33,5 @@
   font-size: 18px;
   padding: 10px 0;
   border-radius: 30px;
-  margin-top: 250px;
+  margin-bottom: 70px;
 }

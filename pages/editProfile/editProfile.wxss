@@ -32,8 +32,8 @@
   right: 5%;
   margin: 0 auto;
   transform-origin: center;
-  width: 20rpx;
-  height: 20rpx;
+  width: 10rpx;
+  height: 10rpx;
   border: 5rpx solid #000;
   border-top-width: 0;
   border-right-width: 0;
@@ -78,41 +78,49 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  transform: translateY(0%);
   width: 100%;
-  padding: 70px 0;
+  overflow: hidden;
+  background-color: #F7F7F7;
+  padding-bottom: 60px;
+  transition: height 1s linear;
+}
+
+.container .logout-modal .submit-box {
   background-color: #fff;
+  padding: 50px 0;
 }
 
-@keyframes slide-down {
-  0%{transform:scale(1,0);}
-  100%{transform:scale(1,1);}
+.container .logout-modal .submit-box > text {
+  display: block;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-@-webkit-keyframes slide-down {
-  0%{-webkit-transform:scale(1,0);}
-  100%{-webkit-transform:scale(1,1);}
+.container .logout-modal .submit-box .submit {
+  max-width: 389px;
+  height: 46px;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #FCDB57;
+}
+
+.container .logout-modal .cancel {
+  width: 100%;
+  height: 52px;
+  background-color: #fff;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
 }
 
 .container .active {
-  max-height: 322px;
-  transition: max-height .3s ease-in;
-  transform-origin: 0% 100%;
-  animation: slide-down 0.3s ease-in;
-  -webkit-animation: slide-down 0.3s ease-in;
+  height: 300px;
 }
 
 .container .hidden {
-  max-height: 0px;
-  overflow: auto;
-  transform-origin: 100% 0%;
-  transition: max-height .3s ease-out;
-}
-
-.logout-modal > text {
-  display: block;
-  text-align: center;
-  margin-bottom: 50px;
+  height: 0;
 }
 
 .logout-modal > button {
@@ -120,9 +128,4 @@
   height: 46px;
   border-radius: 25px;
   text-align: center;
-}
-
-.logout-modal .submit {
-  background-color: #FCDB57;
-  margin-bottom: 20px;
 }

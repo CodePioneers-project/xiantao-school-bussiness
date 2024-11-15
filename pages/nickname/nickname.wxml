@@ -1,6 +1,6 @@
 <view class="page">
   <view class="nickname-box">
-    <input class="nickname" type="text" placeholder="快取个有意思的昵称吧" data-field="nickname" bindinput="inputChange" value="{{ nickname }}" />
+    <input name="nickname" class="nickname" placeholder="快取个有意思的昵称吧" data-field="nickname" bindinput="inputChange" value="{{ nickname }}"></input>
     <image class="icon" src="/img/my/nickname-icon.png" />
   </view>
   <text class="description">{{ richTextContent }}</text>

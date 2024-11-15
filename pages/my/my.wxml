@@ -3,7 +3,7 @@
 
   <view class="header">
     <image class="header-img" src="{{userInfo.avatarUrl || '/img/my/my-img.png'}}" bindtap="getUserProfile" />
-    <view class="header-info">
+    <view class="header-info" bindtap="toMinePage">
       <text class="user-name">昵称：{{userInfo.nickName || '未填写'}}</text>
       <text class="user-code">账号：xt790539434929</text>
     </view>
@@ -20,7 +20,7 @@
     </view>
   </view>
   <view class="my-info-container">
-    <text class="info-title" bindtap="toMinePage">我的信息</text>
+    <text class="info-title">我的信息</text>
     <view class="info-post">
       <image class="info-img" src="/img/my/post-icon.png" />
       <text class="post-label">我的帖子</text>

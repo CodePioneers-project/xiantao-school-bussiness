@@ -6,14 +6,16 @@ Page({
    */
   data: {
     signature: '',
+    textareaLength: 0,
   },
 
   // 输入框变化事件
-  inputChange(e) {
+  changeTextArea(e) {
     const field = e.currentTarget.dataset.field;
     const value = e.detail.value;
     this.setData({
-      [`${field}`]: value
+      [`${field}`]: value,
+      textareaLength: e.detail.value.length,
     });
   },
 

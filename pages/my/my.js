@@ -3,6 +3,20 @@ Page({
     userInfo: {}
   },
 
+  toMinePage() {
+    if (Object.keys(this.data.userInfo).length !== 0) {
+      wx.navigateTo({
+        url: '/pages/mine/mine'
+      });
+    } else {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 2000
+      });
+    }
+  },
+
   // 获取用户信息
   getUserProfile() {
     wx.getUserProfile({
