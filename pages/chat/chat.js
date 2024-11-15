@@ -55,6 +55,17 @@ Page({
     });
   },
 
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 3
+      })
+    }
+  },
+  
   // 选择 Emoji 表情
   selectEmoji(e) {
     const { emoji } = e.currentTarget.dataset;

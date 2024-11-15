@@ -1,0 +1,57 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: #FFF;
+  display: flex;
+  line-height: 1.2;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tab-bar-item {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.tab-bar-item .image {
+  width: 20px;
+  height: 20px;
+}
+
+.bulge {
+  background-color: #FFF;
+}
+
+.bulge .tab-bar-bulge {
+  position: absolute;
+  z-index: -1;
+  top: -20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #FFF;
+}
+
+.bulge .image {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: -26px;
+  padding-top: 10px;
+}
+
+.tab-bar-item .tab-bar-view {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.tab-bar-item .tab-bar-bulge-view {
+  position: absolute;
+  top: 32px;
+  font-size: 12px;
+}

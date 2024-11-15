@@ -184,7 +184,7 @@
   border-radius: 8px;
   position: relative;
   position: fixed;
-  bottom: 15px;
+  bottom: 120px;
   left: 50%;
   transform: translateX(-50%);
   margin-bottom: 0px;
