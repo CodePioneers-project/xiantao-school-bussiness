@@ -6,15 +6,13 @@ Component({
     list: [
       {
         pagePath: "/pages/index/index",
-        text: "首页",
         iconPath: "/img/home.png",
         selectedIconPath: "/img/home-select.png"
       },
       {
         pagePath: "/pages/classInfo/classInfo",
-        text: "分享",
         iconPath: "/img/fenxiang.png",
-        selectedIconPath: "/img/fenxiang.png"
+        selectedIconPath: "/img/fenxiang-select.png"
       },
       {
         pagePath: "/pages/add/add",
@@ -25,13 +23,11 @@ Component({
       },
       {
         pagePath: "/pages/chat/chat",
-        text: "聊天",
         iconPath: "/img/goods-info.png",
-        selectedIconPath: "/img/goods-info.png"
+        selectedIconPath: "/img/goods-info-select.png"
       },
       {
         pagePath: "/pages/my/my",
-        text: "我的",
         iconPath: "/img/user.png",
         selectedIconPath: "/img/user-select.png"
       }

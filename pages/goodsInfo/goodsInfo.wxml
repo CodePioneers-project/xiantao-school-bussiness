@@ -1,25 +1,79 @@
+<top-bar id="topBar" backgroundColor="#fff">
+  <view style="display: flex; align-items: center;">
+    <view class="back" catchtap="back">
+      <view class="icon" style="border-color: #000;"></view>
+    </view>
+    <view class="top-user-box">
+      <image class="user-icon" src="/img/home/product1-icon.png" />
+      <text class="user-name">再也不熬夜</text>
+    </view>
+  </view>
+</top-bar>
+
 <view class="container">
   <!-- 图片置顶 -->
   <image src="{{imageUrl}}" mode="widthFix" class="goods-image">
     <view class="price">￥49</view>
   </image>
 
+  <!-- 其他图片 -->
+  <view class="other-img-box">
+    <image wx:for="{{4}}" wx:key="index" wx:for-item="item" class="{{currentSelectImg === index ? 'select' : ''}}" src="/img/laopo.jpg" data-id="{{ index }}" bindtap="setCurrentSelectImg" />
+  </view>
+
   <!-- 文字说明 -->
   <view class="description">
     <text>此产品最近很多人想要，想要就来找买家联系吧</text>
     <view class="sub-description">
       <view class="about">关于物品</view>
-      <view class="status">商品状态: <text class="text">全新</text></view>
-      <view class="category">商品分类: <text class="text">服饰</text></view>
+      <view class="status">商品状态<text class="text">全新</text></view>
+      <view class="category">商品分类<text class="text">服饰</text></view>
     </view>
   </view>
 
   <!-- 按钮 -->
   <view class="button-container">
     <view class="left-btns">
-      <view>留言</view>
-      <view>收藏</view>
+      <image src="/img/liuyan.png" bindtap="openLiuyanModal" />
+      <view class="start-box">
+        <image src="/img/start.png" />
+        收藏
+      </view>
     </view>
-    <button class="want-button" bindtap="toggleWant" data-status="{{wantStatus}}">{{wantButtonText}}</button>
+    <button class="want-button" bindtap="toggleWant" data-status="{{wantStatus}}">
+      <image src="/img/want-icon.png" />
+      {{wantButtonText}}
+    </button>
+
+    <view class="tooltip">
+      <image src="/img/home/welcome.png" />
+      和卖家聊聊吧
+    </view>
+  </view>
+
+  <view class="{{ liuyanModalIsShow ? 'active' : 'hidden' }} 'liuyan-modal'">
+    <view class="title">
+      <text>全部留言2</text>
+      <image src="/img/line.png" bindtap="cancelClick" />
+    </view>
+    <view class="liuyan-container">
+      <view wx:for="{{8}}" wx:key="index" wx:for-item="item" class="liuyan-item">
+        <view class="left">
+          <image src="/img/home/product1-icon.png" />
+          <view class="user-box">
+            <text class="code">x***9</text>
+            <text>很好</text>
+          </view>
+        </view>
+        <view class="right">
+          <image src="/img/like.png" />
+          <text>1</text>
+        </view>
+      </view>
+    </view>
+    <view class="liuyan-bottom">
+      <input name="liuyan" placeholder="看对眼就留言吧，问问更多细节~"></input>
+      <button>发送</button>
+    </view>
   </view>
 </view>

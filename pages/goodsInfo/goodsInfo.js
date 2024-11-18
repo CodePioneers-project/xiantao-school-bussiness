@@ -3,7 +3,31 @@ Page({
   data: {
     imageUrl: '',
     wantStatus: false,  // 初始状态为未想要
-    wantButtonText: '我想要'  // 初始按钮文字
+    wantButtonText: '我想要',  // 初始按钮文字
+    currentSelectImg: 0,
+    liuyanModalIsShow: false,
+  },
+
+  back () {
+    wx.navigateBack()
+  },
+
+  setCurrentSelectImg (e) {
+    this.setData({
+      currentSelectImg: e.target.dataset.id,
+    })
+  },
+
+  openLiuyanModal () {
+    this.setData({
+      'liuyanModalIsShow': !this.data.liuyanModalIsShow,
+    });
+  },
+
+  cancelClick() {
+    this.setData({
+      'liuyanModalIsShow': false,
+    });
   },
 
   onLoad: function(options) {

@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "再也不熬夜"
+  "usingComponents": {
+    "top-bar": "/components/atoms/topBar"
+  },
+  "navigationStyle": "custom"
 }
