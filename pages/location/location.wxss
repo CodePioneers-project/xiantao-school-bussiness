@@ -1,0 +1,45 @@
+/* pages/location/Location.wxss */
+.page {
+  height: 100%;
+  background-color: #fff;
+}
+
+.current-location {
+  font-size: 17px;
+  line-height: 23px;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hollow-circle {
+  width: 17px;
+  height: 17px;
+}
+
+.other-location .nearby {
+  display: flex;
+  height: 42px;
+  background-color: #F0F0F0;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.other-location .other {
+  font-size: 17px;
+  line-height: 23px;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submit-btn {
+  width: 398px;
+  background-color: #FCDB57;
+  color: #000;
+  font-size: 18px;
+  border-radius: 30px;
+  margin-top: 200px;
+}

@@ -76,42 +76,28 @@ Page({
       },
     ],
     locationId: null,
-    location: [{
-        id: 1,
-        name: '常州信息职业技术学院'
-      },
-      // 这里是由API获取附近学院进行拼接的。
-      {
-        id: 2,
-        name: '常州机电职业技术学院'
-      },
-      {
-        id: 3,
-        name: '常州工程职业技术学院'
-      },
-      {
-        id: 4,
-        name: '常州纺织职业技术学院'
-      },
-      {
-        id: 5,
-        name: '常州工业职业技术学院'
-      },
-      {
-        id: 6,
-        name: '常州大学'
-      },
-    ],
+    locationName: '',
     classificationIndex: 0, // 当前选中的分类索引,
-    statusIndex: 0,
-    locationIndex: 0,
+    statusIndex: null,
     textareaLength: 0,
+    isStatusPickerViewVisible: false,
+    isCategoryPickerViewVisible: false,
+    addModalIsShow: false,
+    form: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    const storedLocationInfo = wx.getStorageSync('location');
+    if (storedLocationInfo) {
+      this.setData({
+        locationId: storedLocationInfo.id,
+        locationName: storedLocationInfo.name
+      });
+    }
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -174,43 +160,98 @@ Page({
         icon: "none"
       });
     } else if (that.data.classId === null) {
-      that.data.classId = 0
-    } else if (that.data.locationId === null) {
-      that.data.locationId = 0
-    } else if (that.data.statusId === null) {
-      that.data.statusId = 0
-    } else {
       wx.showToast({
-        title: '发布中',
-        icon: 'loading',
-        duration: 30000
+        title: '请添加分类',
+        icon: "none"
       });
-
-      // 将表单数据存储到本地存储中
-      let postedItems = wx.getStorageSync('info') || [];
-      postedItems.push({
-        id: new Date().getTime(), // 使用时间戳作为唯一ID
-        title: value.name,
-        description: value.describle,
-        price: value.price,
-        classification: that.data.classification[that.data.index].name,
-        images: that.data.img
+    } else if (that.data.locationId === null) {
+      wx.showToast({
+        title: '请添加发布地址',
+        icon: "none"
       });
-      wx.setStorageSync('info', postedItems);
-
-      // 跳转到首页并刷新数据
-      wx.switchTab({
-        url: '/pages/index/index'
+    } else if (that.data.statusId === null) {
+      wx.showToast({
+        title: '请添加发布状态',
+        icon: "none"
+      });
+    } else {
+      this.setData({
+        addModalIsShow: true,
+        form: value,
       });
     }
   },
 
+  submitConfim: function () {
+    wx.showToast({
+      title: '发布中',
+      icon: 'loading',
+      duration: 3000
+    });
+
+    // 将表单数据存储到本地存储中
+    let postedItems = wx.getStorageSync('info') || [];
+    postedItems.push({
+      id: new Date().getTime(), // 使用时间戳作为唯一ID
+      title: this.data.form.name,
+      description: this.data.form.describle,
+      price: this.data.form.price,
+      classification: this.data.classification[this.data.index].name,
+      images: this.data.img
+    });
+    wx.setStorageSync('info', postedItems);
+
+    this.setData({
+      addModalIsShow: false,
+      form: null,
+    });
+    // 跳转到首页并刷新数据
+    wx.switchTab({
+      url: '/pages/index/index'
+    });
+  },
+
+  cancel: function () {
+    this.setData({
+      addModalIsShow: false,
+    });
+  },
+
+  toSelectLocationPage: function () {
+    wx.navigateTo({
+      url: '/pages/location/location',
+    })
+  },
+  toggCategoryPickerView: function () {
+    this.setData({
+      isCategoryPickerViewVisible: true,
+    });
+  },
   bindPickerChange: function (e) {
     var that = this;
     console.log('携带值为', e.detail.value);
     that.setData({
       index: e.detail.value,
       classId: that.data.classification[e.detail.value].id
+    });
+  },
+  cancelCategory: function () {
+    var that = this;
+    that.setData({
+      index: null,
+      classId: null,
+      isCategoryPickerViewVisible: false,
+    });
+  },
+  confirmCategory: function () {
+    var that = this;
+    that.setData({
+      isCategoryPickerViewVisible: false,
+    });
+  },
+  toggStatusPickerView: function () {
+    this.setData({
+      isStatusPickerViewVisible: true,
     });
   },
   bindStatusPickerChange: function (e) {
@@ -221,12 +262,18 @@ Page({
       statusId: that.data.status[e.detail.value].id
     });
   },
-  bindLocationPickerChange: function (e) {
+  cancelStatus: function () {
     var that = this;
-    console.log('携带值为', e.detail.value);
     that.setData({
-      locationIndex: e.detail.value,
-      locationId: that.data.location[e.detail.value].id
+      statusIndex: null,
+      statusId: null,
+      isStatusPickerViewVisible: false,
     });
-  }
+  },
+  confirmStatus: function () {
+    var that = this;
+    that.setData({
+      isStatusPickerViewVisible: false,
+    });
+  },
 });

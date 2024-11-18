@@ -1,0 +1,19 @@
+<!--pages/location/Location.wxml-->
+<view class="page">
+  <view class="current-location" data-data="{{ location[0] }}" bindtap="locationClick">
+    <text>{{ location[0].name }}</text>
+    <image wx:if="{{ currentLocation.id === location[0].id }}" class="hollow-circle" src="/img/solid-circle.png" />
+    <image wx:else class="hollow-circle" src="/img/hollow-circle.png" />
+  </view>
+
+  <view class="other-location">
+    <text class="nearby">附近学校</text>
+    <view wx:for="{{ location }}" wx:key="index" wx:for-item="item" class="other" data-data="{{ item }}" bindtap="locationClick">
+      <text>{{ item.name }}</text>
+      <image wx:if="{{ currentLocation.id === item.id }}" class="hollow-circle" src="/img/solid-circle.png" />
+      <image wx:else class="hollow-circle" src="/img/hollow-circle.png" />
+    </view>
+  </view>
+
+  <button class="submit-btn" bindtap="submit">确认</button>
+</view>

@@ -1,0 +1,23 @@
+<view class="page">
+  <top-bar id="topBar" background="#fff">
+    <view class="back" catchtap="toHomePage">
+      <view class="icon" style="border-color: #000;"></view>
+    </view>
+  </top-bar>
+
+  <view class="container">
+    <button class="publish-btn" bindtap="toAddPage">
+      <text>发布闲置</text>
+      <view class="icon"></view>
+      <image class="bg" src="/img/publishBg2.png" />
+    </button>
+    <button class="receive-goods-btn">
+      <text>收货</text>
+      <view class="icon"></view>
+      <image class="bg" src="/img/publishBg1.png" />
+    </button>
+
+    <image class="publish-icon" src="/img/publishIcon.png" />
+    <image class="receive-goods-icon" src="/img/publishIcon.png" />
+  </view>
+</view>

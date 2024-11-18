@@ -14,7 +14,9 @@
     "pages/nickname/nickname",
     "pages/userProfileBg/userProfileBg",
     "pages/userIntro/userIntro",
-    "pages/chat/chat"
+    "pages/chat/chat",
+    "pages/publish/publish",
+    "pages/location/location"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -40,7 +42,7 @@
         "selectedIconPath": "/img/fenxiang-select.png"
       },
       {
-        "pagePath": "pages/add/add",
+        "pagePath": "pages/publish/publish",
         "text": "发布",
         "iconPath": "/img/add.png",
         "selectedIconPath": "/img/add.png"

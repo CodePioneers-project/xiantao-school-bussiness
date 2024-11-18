@@ -15,7 +15,7 @@ Component({
         selectedIconPath: "/img/fenxiang-select.png"
       },
       {
-        pagePath: "/pages/add/add",
+        pagePath: "/pages/publish/publish",
         bulge:true,
         text: "发布",
         iconPath: "/img/add.png",

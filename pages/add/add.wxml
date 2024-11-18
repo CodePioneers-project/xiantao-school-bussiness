@@ -14,24 +14,66 @@
       <view class="update-placeholder" bindtap='updataimg' />
       <image wx:for="{{img}}" src='{{item}}' bindtap='updataimg' class='update-img' />
     </view>
-    <picker bindchange="bindLocationPickerChange" range-key='name' range="{{location}}" value='{{locationIndex}}'>
-      <view class='add-location'>
-        发布至<text>{{location[locationIndex].name}}</text>
-        <image src="../../img/enter.png" class="right-icon" />
+
+    <view class='add-location' bindtap="toSelectLocationPage">
+      发布至<text>{{locationName}}</text>
+      <image src="../../img/enter.png" class="right-icon" />
+    </view>
+
+    <view class="status" bindtap="toggStatusPickerView">
+      状态<text>{{status[statusIndex].name}}</text>
+      <image src="../../img/enter.png" class="right-icon" />
+    </view>
+    <view wx:if="{{isStatusPickerViewVisible}}" class="status-overlay">
+      <view class="status-container">
+        <view class="status-actions">
+          <button bindtap="cancelStatus">取消</button>
+          <text>选择商品分类</text>
+          <button bindtap="confirmStatus">确定</button>
+        </view>
+        <picker-view value="{{[statusIndex]}}" bindchange="bindStatusPickerChange" style="width: 100%; height: 200px;">
+          <picker-view-column>
+            <view wx:for="{{status}}" wx:key="name" class="status-picker-item">
+              {{item.name}}
+              <image wx:if="{{statusId === item.id}}" src="/img/dui.png" />
+            </view>
+          </picker-view-column>
+        </picker-view>
       </view>
-    </picker>
-    <picker bindchange="bindStatusPickerChange" range-key='name' range="{{status}}" value='{{statusIndex}}'>
-      <view class='status'>
-        状态<text>{{status[statusIndex].name}}</text>
-        <image src="../../img/enter.png" class="right-icon" />
+    </view>
+
+    <view class="category" bindtap="toggCategoryPickerView">
+      分类<text>{{classification[index].name}}</text>
+      <image src="../../img/enter.png" class="right-icon" />
+    </view>
+    <view wx:if="{{isCategoryPickerViewVisible}}" class="category-overlay">
+      <view class="category-container">
+        <view class="category-actions">
+          <button bindtap="cancelCategory">取消</button>
+          <text>选择商品状态</text>
+          <button bindtap="confirmCategory">确定</button>
+        </view>
+        <picker-view value="{{index}}" bindchange="bindPickerChange" style="width: 100%; height: 200px;">
+          <picker-view-column>
+            <view wx:for="{{classification}}" wx:key="name" class="category-picker-item">
+              {{item.name}}
+              <image wx:if="{{classId === item.id}}" src="/img/dui.png" />
+            </view>
+          </picker-view-column>
+        </picker-view>
       </view>
-    </picker>
-    <picker bindchange="bindPickerChange" range-key='name' range="{{classification}}" value='{{index}}'>
-      <view class='category'>
-        分类<text>{{classification[index].name}}</text>
-        <image src="../../img/enter.png" class="right-icon" />
-      </view>
-    </picker>
+    </view>
     <button class="buttom-btn" form-type='submit'>发布</button>
   </form>
+
+  <view wx:if="{{addModalIsShow}}" class="add-modal">
+    <view class="modal-container">
+      <text>发布后商品信息无法更改</text>
+      <text>请确认信息无误</text>
+      <view class="modal-btn-box">
+        <button bindtap="cancel">取消</button>
+        <button class="submit-btn" bindtap="submitConfim">确认发布</button>
+      </view>
+    </view>
+  </view>
 </view>
