@@ -1,0 +1,50 @@
+/* pages/collect/collect.wxss */
+.collect-list {
+  background-color: #fff;
+  padding: 20px 10px;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.collect-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.collect-container > image {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.collect-container .user-msg {
+  color: #707070;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.collect-container .user-msg .msg {
+  font-size: 12px;
+}
+
+.no-data {
+  background-color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.no-data > image {
+  width: 152px;
+  height: 142px;
+}
+
+.no-data > text {
+  font-size: 20px;
+  color: #141414;
+}

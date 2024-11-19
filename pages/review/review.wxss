@@ -1,0 +1,50 @@
+/* pages/review/review.wxss */
+.review-list {
+  background-color: #fff;
+  padding: 20px 10px;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.review-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.review-container > image {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.review-container .user-msg {
+  color: #707070;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.review-container .user-msg .name {
+  font-size: 12px;
+}
+
+.no-data {
+  background-color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.no-data > image {
+  width: 152px;
+  height: 142px;
+}
+
+.no-data > text {
+  font-size: 20px;
+  color: #141414;
+}

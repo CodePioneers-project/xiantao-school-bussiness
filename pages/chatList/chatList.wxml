@@ -1,0 +1,36 @@
+<!--pages/chatList/chatList.wxml-->
+<top-bar id="topBar" backgroundColor="transparent"></top-bar>
+
+<view class="message-notification">
+  <text>消息通知</text>
+  <view class="container">
+    <view class="like-content" bindtap="toCollectPage">
+      <view class="common like">
+        <image src="/img/chat/like.png" />
+      </view>
+      <text>赞和收藏</text>
+    </view>
+    <view class="person-content" bindtap="toFollowPage">
+      <view class="common person">
+        <image src="/img/chat/person.png" />
+      </view>
+      <text>新增关注</text>
+    </view>
+    <view class="msg-content" bindtap="toReviewPage">
+      <view class="common msg">
+        <image src="/img/chat/msg.png" />
+      </view>
+      <text>评论和回复</text>
+    </view>
+  </view>
+</view>
+
+<view class="chat-list">
+  <view wx:for="{{15}}" wx:key="index" wx:for-item="item" data-id="{{ index }}" class="chat-container" bindtap="toChatPage">
+    <image src="/img/home/product1-icon.png" />
+    <view class="user-msg">
+      <text>可爱小猪包</text>
+      <text class="msg">关注了你</text>
+    </view>
+  </view>
+</view>

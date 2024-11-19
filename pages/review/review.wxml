@@ -1,0 +1,15 @@
+<!--pages/review/review.wxml-->
+<view wx:if="{{ true }}" class="review-list">
+  <view wx:for="{{15}}" wx:key="index" wx:for-item="item" class="review-container">
+    <image src="/img/home/product1-icon.png" />
+    <view class="user-msg">
+      <text class="name">可爱小猪包</text>
+      <text>好可爱</text>
+    </view>
+  </view>
+</view>
+
+<view wx:else class="no-data">
+  <image src="/img/chat/no-collect.png" />
+  <text>没有消息哦～</text>
+</view>

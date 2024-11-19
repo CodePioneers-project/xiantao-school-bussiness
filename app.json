@@ -16,7 +16,11 @@
     "pages/userIntro/userIntro",
     "pages/chat/chat",
     "pages/publish/publish",
-    "pages/location/location"
+    "pages/location/location",
+    "pages/chatList/chatList",
+    "pages/collect/collect",
+    "pages/follow/follow",
+    "pages/review/review"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -48,7 +52,7 @@
         "selectedIconPath": "/img/add.png"
       },
       {
-        "pagePath": "pages/chat/chat",
+        "pagePath": "pages/chatList/chatList",
         "iconPath": "/img/goods-info.png",
         "selectedIconPath": "/img/goods-info-select.png"
       },

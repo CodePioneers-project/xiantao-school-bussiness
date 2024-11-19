@@ -22,7 +22,7 @@ Component({
         selectedIconPath: "/img/add.png"
       },
       {
-        pagePath: "/pages/chat/chat",
+        pagePath: "/pages/chatList/chatList",
         iconPath: "/img/goods-info.png",
         selectedIconPath: "/img/goods-info-select.png"
       },

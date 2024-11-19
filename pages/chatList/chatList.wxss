@@ -1,0 +1,93 @@
+/* pages/chatList/chatList.wxss */
+.message-notification {
+  padding: 15px 0;
+  background-color: #fff;
+}
+
+.message-notification text {
+  display: block;
+  font-size: 20px;
+  color: #262626;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.container .common {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.like-content > text,
+.person-content >  text,
+.msg-content > text {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.container .like {
+  background-color: #FAE9E7;
+}
+
+.container .person {
+  background-color: #E7F0FF;
+}
+
+.container .msg {
+  background-color: #E5FAF1;
+}
+
+.container .like > image {
+  width: 46px;
+  height: 43px;
+}
+
+.container .person > image {
+  width: 35px;
+  height: 40px;
+}
+
+.container .msg > image {
+  width: 44px;
+  height: 37px;
+}
+
+.chat-list {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px 10px;
+  overflow-y: scroll;
+  height: calc(100% - 382px);
+}
+
+.chat-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chat-container > image {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.chat-container .user-msg {
+  color: #707070;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chat-container .user-msg .msg {
+  font-size: 12px;
+}

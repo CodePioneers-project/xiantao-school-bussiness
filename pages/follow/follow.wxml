@@ -1,0 +1,15 @@
+<!--pages/follow/follow.wxml-->
+<view wx:if="{{ true }}" class="follow-list">
+  <view wx:for="{{15}}" wx:key="index" wx:for-item="item" class="follow-container">
+    <image src="/img/home/product1-icon.png" />
+    <view class="user-msg">
+      <text>可爱小猪包</text>
+      <text class="msg">关注了你</text>
+    </view>
+  </view>
+</view>
+
+<view wx:else class="no-data">
+  <image src="/img/chat/no-collect.png" />
+  <text>没有消息哦～</text>
+</view>
